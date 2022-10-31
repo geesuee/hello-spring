@@ -51,6 +51,8 @@ public class MemberController {
         // memberService 에 오류 표시 = MemberController 생성을 위해 MemberService 를 찾는데, 스프링 컨테이너에 등록되어있지 않아서
         // MemberService 파일에 @Service 어노테이션을 붙여서 스프링 컨테이너가 인식할 수 있도록 해야함
         this.memberService = memberService;
+        System.out.println("memberService = " + memberService.getClass());
+        // memberService = class hello.hellospring.service.MemberService$$EnhancerBySpringCGLIB$$8a3b881b -> CGLIB, 프록시를 만들어서 AOP 실행 후 진짜 memberService 실행
     }
 
     // 3. setter 주입 -> 어디선가 MemberController 를 호출했을 때, setter 로 의존성 주입해주어야 하기 때문에 setter 가 public 으로 열려있어야 함. 중간에 값이 잘못 바뀌면 문제가 생김
